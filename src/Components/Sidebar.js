@@ -10,7 +10,7 @@ function Sidebar({notes,onAddNote, onDeleteNote, activeNote, setActiveNote}){
     return(
         <div className="app-sidebar">
             <div className="app-sidebar-header">
-                <h1>Notes</h1>
+                <input className="searchBar" placeholder="Search "></input>
                 <span className="material-icons-outlined" onClick={onAddNote}>note_add</span>
             </div>
             <div className="app-sidebar-notes">
