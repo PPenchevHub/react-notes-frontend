@@ -20,7 +20,36 @@ body,
   background: url(https://www.toptal.com/designers/subtlepatterns/patterns/lightpaperfibers.png);
 }
 
-button {
+.App {
+  display: flex;
+}
+
+.darkMode .App {
+  background: #282a36;
+}
+.lightMode .App {
+  background: url(https://www.toptal.com/designers/subtlepatterns/patterns/lightpaperfibers.png);
+}
+
+.darkMode button {
+  background: none;
+  border: 0;
+  margin: 0;
+  padding: 0;
+  font-size: inherit;
+  font-family: inherit;
+  cursor: pointer;
+  color: #fff;
+}
+.darkMode button:hover {
+  color: #04c;
+}
+
+.lightMode button:hover {
+  color: #04c;
+}
+
+.lightMode button {
   background: none;
   border: 0;
   margin: 0;
@@ -29,13 +58,6 @@ button {
   font-family: inherit;
   cursor: pointer;
   color: #08c;
-}
-button:hover {
-  color: #04c;
-}
-
-.App {
-  display: flex;
 }
 
 /* SIDEBAR STYLES */
@@ -54,7 +76,12 @@ button:hover {
 
 .searchBar {
   border-radius: 15px;
-  border: none;
+  border-width: 0 0 1px 0;
+  height: 5vh;
+  width: 100%;
+  background: none;
+  padding: 10px;
+  color: #999;
 }
 .app-sidebar-header h1 {
   margin: 0;
@@ -62,31 +89,54 @@ button:hover {
 
 .app-sidebar-notes {
   height: calc(100vh - 78px);
-  /* overflow-y: scroll;*/
+  overflow-y: auto;
 }
 .app-sidebar-note {
   padding: 25px;
   cursor: pointer;
 }
-.sidebar-note-title {
+.lightMode .sidebar-note-title {
   display: flex;
   justify-content: space-between;
+}
+.darkMode .sidebar-note-title {
+  display: flex;
+  justify-content: space-between;
+  color: #999;
 }
 
 .app-sidebar-note p {
   margin: 10px 0;
 }
-.app-sidebar-note small {
+
+/* Light Mode Sidebar*/
+.lightMode .app-sidebar-note small {
   display: block;
   color: #999;
 }
-
-.app-sidebar-note:hover {
+.lightMode .app-sidebar-note:hover {
   background: #ddd;
 }
-.app-sidebar-note.active,
+.lightMode .app-sidebar-note.active,
 .app-sidebar-note.active small {
   background: #08c;
+  color: white;
+}
+
+/*DarkMode Sidebar */
+.darkMode .app-sidebar-note small {
+  display: block;
+  color: #018786;
+}
+.darkMode .app-sidebar-note:hover {
+  background: #018786;
+}
+.darkMode .app-sidebar-note.active {
+  background: #018786;
+  color: white;
+}
+.darkMode .app-sidebar-note.active small {
+  background: #018786;
   color: white;
 }
 
@@ -135,27 +185,46 @@ textarea {
 }
 
 /* Preview */
-.app-main-note-preview {
+.lightMode .app-main-note-preview {
   border-top: 1px solid #ddd;
   background: rgba(0, 0, 0, 0.02);
   margin-left: 20px;
+}
+.darkMode .app-main-note-preview {
+  margin-left: 20px;
+  overflow-y: auto;
+  background: #4c535e;
+  display: flexbox;
 }
 
 .preview-title {
   padding: 25px 25px 0 25px;
   margin: 0;
+  text-align: center;
 }
 
 .markdown-preview {
   padding: 0 25px 25px 25px;
   font-size: 1rem;
   line-height: 2rem;
+  overflow-y: auto;
 }
 .material-icons-outlined {
-  font-size: 36px !important;
-  color: #08c;
+  font-size: 40px !important;
+  color: #018786;
   cursor: pointer;
+  padding-top: 10px;
+  flex-direction: column;
+}
+.darkMode .material-icons {
+  color: #fff;
 }
 .topBar {
   display: flex;
+}
+.toolbar {
+  width: 5%;
+  flex-direction: column;
+  padding: 10px;
+  margin-top: 10px;
 }
