@@ -19,7 +19,6 @@ function Sidebar({notes,onAddNote, onDeleteNote, activeNote, setActiveNote}){
         <div className="app-sidebar">
             <div className="app-sidebar-header">
                <input className="searchBar" type="text" placeholder="Search..." onChange={(e) => {setSearchTerm(e.target.value)}}/>
-                <span className="material-icons-outlined" onClick={onAddNote}>note_add</span>
             </div>
             <div className="app-sidebar-notes">
 

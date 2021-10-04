@@ -3,10 +3,16 @@ import Sidebar from './Components/Sidebar';
 import Main from './Components/Main';
 import {useState} from 'react';
 import uuid from "react-uuid";
+import Toolbar from './Components/Toolbar';
 
 function App() {
 const [notes, setNotes] = useState([]);
 const [activeNote, setActiveNote] = useState(false);
+const [darkMode, setDarkMode] =useState(false);
+
+const switchTheme = () => {
+  setDarkMode(prevMode => !prevMode)
+}
 
 const onAddNote = () => {
   const newNote = {
@@ -36,14 +42,18 @@ const getActiveNote = () =>{
 }
 
   return (
-    <div className="App">
-          <Sidebar 
-          notes={notes} 
-          onAddNote={onAddNote}
-          onDeleteNote={onDeleteNote}
-          activeNote={activeNote}
-          setActiveNote={setActiveNote}/>
-          <Main activeNote={getActiveNote()} onUpdateNote={onUpdateNote}/>
+
+    <div className={darkMode ? "darkMode" : "lightMode"}>
+        <div className="App">
+              <Sidebar 
+              notes={notes} 
+              onAddNote={onAddNote}
+              onDeleteNote={onDeleteNote}
+              activeNote={activeNote}
+              setActiveNote={setActiveNote}/>
+              <Main activeNote={getActiveNote()} onUpdateNote={onUpdateNote} />
+              <Toolbar darkMode={darkMode} onAddNote={onAddNote} toggle={switchTheme}/>
+        </div>
     </div>
   );
 }
