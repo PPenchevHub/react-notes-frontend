@@ -14,7 +14,7 @@ function Main({activeNote, onUpdateNote}) {
         return <div className="no-active-note">No note selected</div>
     }
 
-const  downloadTxtFile = () => {
+const  downloadFile = () => {
    const element = document.createElement("a");
    const file = new Blob([document.getElementById('body').value],    
                {type: 'text/markdown'});
@@ -34,7 +34,7 @@ const  downloadTxtFile = () => {
                     <textarea name="" id="body" cols="30" rows="10" placeholder="Text here" value={activeNote.body}
                     onChange={(e) => onEditField("body",e.target.value)}
                     ></textarea>
-                    <button onClick={downloadTxtFile}>Down</button>
+                    <button onClick={downloadFile}>Download</button>
                 </div>
                 <div className="app-main-note-preview">
                     <h1 className="preview-title">{activeNote.title}</h1>

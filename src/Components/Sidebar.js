@@ -1,21 +1,29 @@
 import ReactMarkdown from "react-markdown";
 import DeleteIcon from 'material-icons/iconfont/material-icons.css';
-
+import { useState } from "react";
 
 
 function Sidebar({notes,onAddNote, onDeleteNote, activeNote, setActiveNote}){
 
-        const sortedNotes = notes.sort((a,b) => b.lastModified - a.lastModified);
+    const [searchTerm, setSearchTerm] = useState("");
 
+    const sortedNotes = notes.sort((a,b) => b.lastModified - a.lastModified);
+
+    const filteredNotes = sortedNotes.filter((a) => {
+                                if(searchTerm ==="")return a;
+                                else if(a.title.toLowerCase().includes(searchTerm.toLowerCase())){
+                                    return a
+                                } });
+                      
     return(
         <div className="app-sidebar">
             <div className="app-sidebar-header">
-                <input className="searchBar" placeholder="Search "></input>
+               <input className="searchBar" type="text" placeholder="Search..." onChange={(e) => {setSearchTerm(e.target.value)}}/>
                 <span className="material-icons-outlined" onClick={onAddNote}>note_add</span>
             </div>
             <div className="app-sidebar-notes">
 
-             {sortedNotes.map((note)=>(   
+             {filteredNotes.map((note)=>(   
                   <div className={`app-sidebar-note  ${note.id===activeNote && "active"}`} onClick={()=> setActiveNote(note.id)}>
                     <div className="sidebar-note-title">
                         <strong>{note.title}</strong>
