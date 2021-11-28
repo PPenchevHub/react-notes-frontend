@@ -145,6 +145,8 @@ body,
 .app-main {
   width: 70%;
   height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 .app-main-note-edit,
 .app-main-note-preview {
@@ -164,6 +166,7 @@ body,
 /* Editing */
 .app-main-note-edit {
   padding: 25px;
+  color: #404b69;
 }
 
 .app-main-note-edit input,
@@ -178,6 +181,8 @@ textarea {
   font-size: inherit;
   font-family: inherit;
   border-radius: 15px;
+  background-color: #dbedf3;
+  color: #404b69;
 }
 .app-main-note-edit input {
   height: 50px;
@@ -193,7 +198,7 @@ textarea {
 .darkMode .app-main-note-preview {
   margin-left: 20px;
   overflow-y: auto;
-  background: #4c535e;
+  background: #404b69;
   display: flexbox;
 }
 
