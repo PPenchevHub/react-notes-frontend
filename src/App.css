@@ -94,7 +94,6 @@ body,
 .app-sidebar-note {
   padding: 25px;
   cursor: pointer;
-  color: white;
 }
 .lightMode .sidebar-note-title {
   display: flex;
@@ -207,7 +206,6 @@ textarea {
   padding: 25px 25px 0 25px;
   margin: 0;
   text-align: center;
-  color:white
 }
 
 .markdown-preview {
@@ -215,7 +213,6 @@ textarea {
   font-size: 1rem;
   line-height: 2rem;
   overflow-y: auto;
-  color: white;
 }
 .material-icons-outlined {
   font-size: 40px !important;
